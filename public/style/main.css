@@ -13,15 +13,47 @@ html {
 body {
     overflow-x: hidden;
     font-weight: normal;
-
+    font-family: "Roboto", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
     -webkit-tap-highlight-color: transparent;
 }
 
-.app {
+.App {
     margin-top: 2rem;
     display: grid;
     justify-items: center;
+}
+
+.journal-list-wrapper {
+    display: flex;
+}
+
+.journal-heading {
+    display: flex;
+    font-size: 25px;
+    padding: 5px;
+}
+
+.journal-list-items {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+}
+
+.btns {
+    padding: 5px;
+}
+
+.btns button {
+    margin: 5px;
+}
+.post {
+    margin: 5px;
+}
+
+.post-props {
+    font-size: 15px;
+    padding: 5px;
 }
