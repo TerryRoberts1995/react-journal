@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from 'axios'
 
 export default class DailySmarty extends Component {
   constructor() {
@@ -21,16 +22,16 @@ export default class DailySmarty extends Component {
       );
     });
   };
-
+  
   componentDidMount() {
-    fetch("https://api.dailysmarty.com/posts")
-      .then(response => response.json())
-      .then(data => {
-        this.setState({
-          posts: data.posts
-        });
+    axios.get("https://api.dailysmarty.com/posts")
+      .then(response => {
+          console.log(response.data)
+          this.setState({
+              posts: response.data.posts
+          })
       })
-      .catch(err => console.error("Feth didn't work", err));
+      .catch(err => console.error("Fetch didn't work", err));
   }
 
   render() {
@@ -38,6 +39,8 @@ export default class DailySmarty extends Component {
       <div>
         <h1>Daily Smarty</h1>
         {this.renderPosts()}
+        <button onClick={this.clearEntries}>Clear Journal Entries</button>
+        <button onClick={this.showAllEntries}>Show All Journal Entries</button>
       </div>
     );
   }
